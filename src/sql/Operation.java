@@ -1,7 +1,7 @@
 package sql;
 
 import entity.Department;
-import entity.Expense;
+import entity.ExpenseReportEntity;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -82,7 +82,7 @@ public class Operation {
     }
 
     // get all the information of expense by department Id and the year
-    public ArrayList<Expense> getExpenseBy(String departmentId, String year){
+    public ArrayList<ExpenseReportEntity> getExpenseBy(String departmentId, String departmentName, String year){
 
         if(mDataBaseConnection == null){
            dataBaseConnection();
@@ -90,7 +90,7 @@ public class Operation {
 
         Statement statement;
 
-        ArrayList<Expense> expenses = new ArrayList<>();
+        ArrayList<ExpenseReportEntity> expenses = new ArrayList<>();
 
         try {
             statement = mDataBaseConnection.createStatement();
@@ -99,7 +99,7 @@ public class Operation {
                 String money = resultSet.getString("expense");
                 String month = resultSet.getString("month");
 
-                expenses.add(new Expense(money,departmentId,month,year));
+                expenses.add(new ExpenseReportEntity(money,departmentId,departmentName,month,year));
             }
 
             resultSet.close();
@@ -111,6 +111,5 @@ public class Operation {
 
         return expenses;
     }
-
 
 }
