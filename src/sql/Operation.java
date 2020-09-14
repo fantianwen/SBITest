@@ -38,7 +38,7 @@ public class Operation {
         }
     }
 
-    private void closeConnection(){
+    public void closeConnection(){
         if(this.mDataBaseConnection!=null){
             try {
                 this.mDataBaseConnection.close();

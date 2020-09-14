@@ -22,7 +22,9 @@ public class Main {
         for (Department department : departments) {
             String department_id = department.getDepartment_id();
             ArrayList<Expense> expense = operation.getExpenseBy(department_id, mYEAR);
+            operation.closeConnection();
 
+            
 
         }
     }
