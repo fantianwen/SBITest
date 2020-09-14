@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Operation {
 
+    // tables
     public enum Table{
 
         DEPARTMENTS("departments"),
@@ -47,6 +48,7 @@ public class Operation {
         }
     }
 
+    // get all the departments information in the table "departments"
     public ArrayList<Department> fetchAllDepartments() {
 
         if(mDataBaseConnection==null) {
@@ -79,6 +81,7 @@ public class Operation {
 
     }
 
+    // get all the information of expense by department Id and the year
     public ArrayList<Expense> getExpenseBy(String departmentId, String year){
 
         if(mDataBaseConnection == null){
